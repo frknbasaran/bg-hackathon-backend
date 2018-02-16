@@ -25,7 +25,7 @@ Seyahat sırasında fazladan bagaj hakkı bulunan insanları, uygun şehir ve ta
 - Sürecin oluşturulması sırasında kullanıcı deneyiminin harita ile iyileştirilmesi
 
 ## Takım Üyeleri
-Furkan Başaran - Back-end Developer
+Furkan Başaran - Backend Developer
 
 Ömer Faruk Görmel - Android Developer
 
