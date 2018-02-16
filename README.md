@@ -26,5 +26,7 @@ Seyahat sırasında fazladan bagaj hakkı bulunan insanları, uygun şehir ve ta
 
 ## Takım Üyeleri
 Furkan Başaran - Back-end Developer
+
 Ömer Faruk Görmel - Android Developer
+
 Ömer Kantar - iOS Developer
