@@ -4,19 +4,19 @@ Seyahat sırasında fazladan bagaj hakkı bulunan insanları, uygun şehir ve ta
 
 ## Web servisi çalıştırmak için
 
-###Gerekli paketlerin yüklenmesi
+### Gerekli paketlerin yüklenmesi
 ```bash
 $ npm install
 ```
-###Dummy data oluşturmak için data üreteci
+### Dummy data oluşturmak için data üreteci
 ```bash
 $ npm run generate
 ```
-###Unit Testler
+### Unit Testler
 ```bash
 $ mocha
 ```
-###Uygulamanın ayağa kaldırılması
+### Uygulamanın ayağa kaldırılması
 ```bash
 $ npm start
 ```
