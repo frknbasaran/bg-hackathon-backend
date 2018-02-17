@@ -24,6 +24,7 @@ export default {
                     '$lte': ctx.request.query.ed
                 };
             }
+            query["status"] = "ACTIVE";
             let sort = {};
             sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
             // return query result
