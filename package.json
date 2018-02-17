@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js --exec babel-node --presets es2015,stage-2",
+    "generate":"nodemon generator.js --exec babel-node --presets es2015,stage-2",
     "build": "babel lib -d dist",
     "serve": "node dist/index.js"
   },
