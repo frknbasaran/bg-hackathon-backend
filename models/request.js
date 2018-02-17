@@ -18,6 +18,10 @@ const Request = new mongoose.Schema({
     status: {
         type: String,
         default: 'PENDING'
+    },
+    created_by: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 

@@ -1,13 +1,20 @@
-import { Travel } from '../core';
+import {Travel} from '../core';
 import KoaRouter from 'koa-router';
 
 const Router = new KoaRouter();
 
-/*
-* @api {get} /travels Get All Travels
+/**
+* @api {get} /v1/travels Get All Travels
 * @apiName GetAllTravels
 * @apiGroup Travel
 * @apiVersion 1.0.0
+*
+* @apiParam f String, Starting point, city
+* @apiParam t String, Ending point, city
+* @apiParam w Number, Weight, gte
+* @apiParam y ObjectId, User id
+* @apiParam sd Date, Start date of range
+* @apiParam ed Date, End date of range
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -15,32 +22,41 @@ const Router = new KoaRouter();
     "success": true,
     "data": [
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "from": "Istanbul",
-            "to": "Moskova",
-            "user":"59ac71d2bd20270bff10f175",
-            "weight":10
+            _id: "5a883f3675e4b725e03a7bd9",
+            user: {
+                _id: "5a883f3675e4b725e03a7b94",
+                photo: "https://gravatar.com/avatar/853b1b9c545422eb52721d983eb77ee6?s=200&d=retro",
+                name: "Dilatory Leadman",
+                reputation: 0
+            },
+            weight: 47,
+            to: "Stamford",
+            from: "Fort Lauderdale",
+            date: "2018-02-17T14:41:58.968Z",
+            __v: 0,
+            created_at: "2018-02-17T14:41:58.646Z"
         },
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "from": "Istanbul",
-            "to": "Moskova",
-            "user":"59ac71d2bd20270bff10f175",
-            "weight":10
-        }
-        {
-            "_id": "59ac71d2bd20270bff10f175",
-            "from": "Istanbul",
-            "to": "Moskova",
-            "user":"59ac71d2bd20270bff10f175",
-            "weight":10
+            _id: "5a883f3675e4b725e03a7bd9",
+            user: {
+                _id: "5a883f3675e4b725e03a7b94",
+                photo: "https://gravatar.com/avatar/853b1b9c545422eb52721d983eb77ee6?s=200&d=retro",
+                name: "Dilatory Leadman",
+                reputation: 0
+            },
+            weight: 47,
+            to: "Stamford",
+            from: "Fort Lauderdale",
+            date: "2018-02-17T14:41:58.968Z",
+            __v: 0,
+            created_at: "2018-02-17T14:41:58.646Z"
         }
     ]
 }
 * */
 Router.get('/v1/travels', Travel.getAll);
-/*
-* @api {get} /travels/:id GetOneTravel
+/**
+* @api {get} /v1/travels/:id Get One Travel
 * @apiName GetOneTravel
 * @apiGroup Travel
 * @apiVersion 1.0.0
@@ -51,31 +67,34 @@ Router.get('/v1/travels', Travel.getAll);
     "success": true,
     "data": [
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "user": {
-                "username":"frknbasaran",
-                "name":"Furkan BASARAN",
-                "photo":"https://gravatar.com/avatar/sjkdfjsdf7238rfwe",
-                "reputation":10
+            _id: "5a883f3675e4b725e03a7bd9",
+            user: {
+                _id: "5a883f3675e4b725e03a7b94",
+                photo: "https://gravatar.com/avatar/853b1b9c545422eb52721d983eb77ee6?s=200&d=retro",
+                name: "Dilatory Leadman",
+                reputation: 0
             },
-            "from": "Istanbul",
-            "to":"Moskova",
-            "weight":10
+            weight: 47,
+            to: "Stamford",
+            from: "Fort Lauderdale",
+            date: "2018-02-17T14:41:58.968Z",
+            __v: 0,
+            created_at: "2018-02-17T14:41:58.646Z"
         }
     ]
 }
 */
 Router.get('/v1/travels/:id', Travel.getOne);
-/*
+/**
 * @api {post} /travels  Create Travel
 * @apiName CreateTravel
 * @apiGroup Travel
 * @apiVersion 1.0.0
 *
-* @apiParam: from {String}
-* @apiParam: to {String}
-* @apiParam: weight {Number}
-* @apiParam: user {ObjectId}
+* @apiParam from String
+* @apiParam to String
+* @apiParam weight Number
+* @apiParam user ObjectId
 *
 * */
 Router.post('/v1/travels', Travel.create);

@@ -2,7 +2,6 @@
 * Load dependencies
 * */
 import Koa from 'koa';
-import Router from 'koa-router';
 import BodyParser from 'koa-bodyparser';
 import DotEnv from 'dotenv';
 import KoaQS from 'koa-qs';
@@ -15,6 +14,7 @@ import DealRouter from './routes/deal';
 import TravelRouter from './routes/travel';
 import PackRouter from './routes/pack';
 import RequestRouter from './routes/request';
+import IndexRouter from './routes';
 
 // Create app as a Koa Instance
 const app = new Koa();
@@ -33,6 +33,7 @@ app
     .use(TravelRouter.routes())
     .use(PackRouter.routes())
     .use(RequestRouter.routes())
+    .use(IndexRouter.routes())
     .use(async (ctx) => {
         ctx.status = 404
         ctx.body = Response.error("Invalid api endpoint, please read docs.")

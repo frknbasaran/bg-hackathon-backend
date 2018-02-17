@@ -3,11 +3,16 @@ import KoaRouter from 'koa-router';
 
 const Router = new KoaRouter();
 
-/*
-* @api {get} /deals Get All Deals
+/**
+* @api {get} /v1/deals Get All Deals
 * @apiName GetAllDeals
 * @apiGroup Deal
 * @apiVersion 1.0.0
+*
+* @apiParam t ObjectId
+* @apiParam p ObjectId
+* @apiParam sk String, sorting key, ie: created_at
+* @apiParam sv String, sorting type: ie: -1 for desc, 1 for asc
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -15,26 +20,61 @@ const Router = new KoaRouter();
     "success": true,
     "data": [
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "travel": "59ac71d2bd20270bff10f175",
-            "pack": "59ac71d2bd20270bff10f175"
+            _id: "5a883f3875e4b725e03a7d05",
+            pack: {
+                _id: "5a883f3775e4b725e03a7c3e",
+                user: "5a883f3675e4b725e03a7baf",
+                weight: 46,
+                to: "Havre de Grace",
+                from: "Bethlehem",
+                __v: 0,
+                created_at: "2018-02-17T14:41:58.637Z"
+            },
+            travel: {
+                _id: "5a883f3675e4b725e03a7bdb",
+                user: "5a883f3675e4b725e03a7baa",
+                weight: 16,
+                to: "Davidson County",
+                from: "Fort Worth",
+                date: "2018-02-19T14:41:58.983Z",
+                __v: 0,
+                created_at: "2018-02-17T14:41:58.646Z"
+            },
+            __v: 0,
+            status: "PENDING",
+            created_at: "2018-02-17T14:41:58.640Z"
         },
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "travel": "59ac71d2bd20270bff10f175",
-            "pack": "59ac71d2bd20270bff10f175"
-        },
-        {
-            "_id": "59ac71d2bd20270bff10f175",
-            "travel": "59ac71d2bd20270bff10f175",
-            "pack": "59ac71d2bd20270bff10f175"
-        },
+            _id: "5a883f3875e4b725e03a7d05",
+            pack: {
+                _id: "5a883f3775e4b725e03a7c3e",
+                user: "5a883f3675e4b725e03a7baf",
+                weight: 46,
+                to: "Havre de Grace",
+                from: "Bethlehem",
+                __v: 0,
+                created_at: "2018-02-17T14:41:58.637Z"
+            },
+            travel: {
+                _id: "5a883f3675e4b725e03a7bdb",
+                user: "5a883f3675e4b725e03a7baa",
+                weight: 16,
+                to: "Davidson County",
+                from: "Fort Worth",
+                date: "2018-02-19T14:41:58.983Z",
+                __v: 0,
+                created_at: "2018-02-17T14:41:58.646Z"
+            },
+            __v: 0,
+            status: "PENDING",
+            created_at: "2018-02-17T14:41:58.640Z"
+        }
     ]
 }
 * */
 Router.get('/v1/deals', Deal.getAll);
-/*
-* @api {get} /deals/:id GetOneDeal
+/**
+* @api {get} /v1/deals/:id Get One Deal
 * @apiName GetOneDeal
 * @apiGroup Deal
 * @apiVersion 1.0.0
@@ -45,32 +85,42 @@ Router.get('/v1/deals', Deal.getAll);
     "success": true,
     "data": [
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "travel": {
-                "user":"59ac71d2bd20270bff10f175",
-                "from":"Istanbul",
-                "to":"Dubai",
-                "weight":10
+            _id: "5a883f3875e4b725e03a7d05",
+            pack: {
+                _id: "5a883f3775e4b725e03a7c3e",
+                user: "5a883f3675e4b725e03a7baf",
+                weight: 46,
+                to: "Havre de Grace",
+                from: "Bethlehem",
+                __v: 0,
+                created_at: "2018-02-17T14:41:58.637Z"
             },
-            "pack": {
-                "user":"59ac71d2bd20270bff10f175",
-                "from":"Istanbul",
-                "to":"Dubai",
-                "weight":9
-            }
-        }
+            travel: {
+                _id: "5a883f3675e4b725e03a7bdb",
+                user: "5a883f3675e4b725e03a7baa",
+                weight: 16,
+                to: "Davidson County",
+                from: "Fort Worth",
+                date: "2018-02-19T14:41:58.983Z",
+                __v: 0,
+                created_at: "2018-02-17T14:41:58.646Z"
+            },
+            __v: 0,
+            status: "PENDING",
+            created_at: "2018-02-17T14:41:58.640Z"
+        },
     ]
 }
 */
 Router.get('/v1/deals/:id', Deal.getOne);
-/*
-* @api {post} /deals    Create Deal
+/**
+* @api {post} /v1/deals    Create Deal
 * @apiName CreateDeal
 * @apiGroup Deal
 * @apiVersion 1.0.0
 *
-* @apiParam: travel {ObjectId}
-* @apiParam: pack {ObjectId}
+* @apiParam travel ObjectId
+* @apiParam pack ObjectId
 *
 * */
 Router.post('/v1/deals', Deal.create);

@@ -17,7 +17,11 @@ const Deal = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: "PENDING"
+        default: "WAITING"
+    },
+    created_by: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 

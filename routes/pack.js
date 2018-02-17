@@ -3,11 +3,18 @@ import KoaRouter from 'koa-router';
 
 const Router = new KoaRouter();
 
-/*
-* @api {get} /packs Get All Packs
+/**
+* @api {get} /v1/packs Get All Packs
 * @apiName getAllPacks
 * @apiGroup Pack
 * @apiVersion 1.0.0
+*
+* @apiParam f {String} Starting point, city
+* @apiParam t {String} Ending point, city
+* @apiParam w {Number} Weight, lte
+* @apiParam u {ObjectId} User
+* @apiParam sk {String} Sort key
+* @apiParam sv {String} Sort val
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -15,25 +22,39 @@ const Router = new KoaRouter();
     "success": true,
     "data": [
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "from": "Istanbul",
-            "to": "Moskova",
-            "user":"59ac71d2bd20270bff10f175",
-            "weight":10
+            _id: "5a883f3775e4b725e03a7c3d",
+            user: {
+                _id: "5a883f3675e4b725e03a7b7d",
+                photo: "https://gravatar.com/avatar/46fdf6c7bd5dea0905ff529b287e7f7c?s=200&d=retro",
+                name: "Munificent Wheelwright",
+                reputation: 0
+            },
+            weight: 10,
+            to: "Mesa",
+            from: "Irvine",
+            __v: 0,
+            created_at: "2018-02-17T14:41:58.637Z"
         },
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "from": "Istanbul",
-            "to": "Moskova",
-            "user":"59ac71d2bd20270bff10f175",
-            "weight":10
+            _id: "5a883f3775e4b725e03a7c3d",
+            user: {
+                _id: "5a883f3675e4b725e03a7b7d",
+                photo: "https://gravatar.com/avatar/46fdf6c7bd5dea0905ff529b287e7f7c?s=200&d=retro",
+                name: "Munificent Wheelwright",
+                reputation: 0
+            },
+            weight: 10,
+            to: "Mesa",
+            from: "Irvine",
+            __v: 0,
+            created_at: "2018-02-17T14:41:58.637Z"
         }
     ]
 }
 * */
 Router.get('/v1/packs', Pack.getAll);
-/*
-* @api {get} /packs/:id GetOnePack
+/**
+* @api {get} /v1/packs/:id Get One Pack
 * @apiName GetOnePack
 * @apiGroup Pack
 * @apiVersion 1.0.0
@@ -44,31 +65,33 @@ Router.get('/v1/packs', Pack.getAll);
     "success": true,
     "data": [
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "user": {
-                "username":"frknbasaran",
-                "name":"Furkan BASARAN",
-                "photo":"https://gravatar.com/avatar/sjkdfjsdf7238rfwe",
-                "reputation":10
+            _id: "5a883f3775e4b725e03a7c3d",
+            user: {
+                _id: "5a883f3675e4b725e03a7b7d",
+                photo: "https://gravatar.com/avatar/46fdf6c7bd5dea0905ff529b287e7f7c?s=200&d=retro",
+                name: "Munificent Wheelwright",
+                reputation: 0
             },
-            "from": "Istanbul",
-            "to":"Moskova",
-            "weight":10
+            weight: 10,
+            to: "Mesa",
+            from: "Irvine",
+            __v: 0,
+            created_at: "2018-02-17T14:41:58.637Z"
         }
     ]
 }
 */
 Router.get('/v1/packs/:id', Pack.getOne);
-/*
-* @api {post} /packs Create Packet
+/**
+* @api {post} /v1/packs Create Packet
 * @apiName CreatePacket
-* @apiGroup Packet
+* @apiGroup Pack
 * @apiVersion 1.0.0
 *
-* @apiParam: from {String}
-* @apiParam: to {String}
-* @apiParam: weight {Number}
-* @apiParam: user {ObjectId}
+* @apiParam from String, Starting point, city
+* @apiParam to String, Ending point, city
+* @apiParam weight Number, Weight
+* @apiParam user ObjectId, User id
 *
 * */
 Router.post('/v1/packs', Pack.create);

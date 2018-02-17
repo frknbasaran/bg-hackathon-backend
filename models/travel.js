@@ -14,7 +14,11 @@ const Travel = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    weight: Number
+    weight: Number,
+    status: {
+        type: String,
+        default: 'ACTIVE'
+    }
 });
 
 export default Travel;

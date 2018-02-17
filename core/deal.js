@@ -11,12 +11,14 @@ export default {
         try {
             // @queryParam: t, representing travel
             // @queryParam: p, representing pack
-            // @queryParam: s, representing sort, order by created_at,
+            // @queryParam: u, representing user
+            // @queryParam: sk, sv, representing sort, order by created_at,
             let query = {};
             let sort = {};
             sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
             if (ctx.request.query.t) query["travel"] = ctx.request.query.t;
             if (ctx.request.query.p) query["pack"] = ctx.request.query.p;
+            if (ctx.request.query.u) query["created_by"] = ctx.request.query.u;
             // return query result
             let results = await Deal.find(query).sort(sort).populate('travel pack');
             ctx.body = Response.ok(results);
