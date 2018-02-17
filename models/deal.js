@@ -18,6 +18,10 @@ const Deal = new mongoose.Schema({
     status: {
         type: String,
         default: "WAITING"
+    },
+    created_by: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 

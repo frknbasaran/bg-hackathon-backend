@@ -3,7 +3,7 @@ import KoaRouter from 'koa-router';
 
 const Router = new KoaRouter();
 
-/*
+/**
 * @api {get} /v1/deals Get All Deals
 * @apiName GetAllDeals
 * @apiGroup Deal
@@ -72,7 +72,7 @@ const Router = new KoaRouter();
 }
 * */
 Router.get('/v1/deals', Deal.getAll);
-/*
+/**
 * @api {get} /v1/deals/:id Get One Deal
 * @apiName GetOneDeal
 * @apiGroup Deal
@@ -112,7 +112,7 @@ Router.get('/v1/deals', Deal.getAll);
 }
 */
 Router.get('/v1/deals/:id', Deal.getOne);
-/*
+/**
 * @api {post} /v1/deals    Create Deal
 * @apiName CreateDeal
 * @apiGroup Deal

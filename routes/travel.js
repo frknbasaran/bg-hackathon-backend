@@ -3,18 +3,18 @@ import KoaRouter from 'koa-router';
 
 const Router = new KoaRouter();
 
-/*
+/**
 * @api {get} /v1/travels Get All Travels
 * @apiName GetAllTravels
 * @apiGroup Travel
 * @apiVersion 1.0.0
 *
-* @queryParam f {String} Starting point, city
-* @queryParam t {String} Ending point, city
-* @queryParam w {Number} Weight, gte
-* @queryParam y {ObjectId} User id
-* @queryParam sd {Date} Start date of range
-* @queryParam ed {Date} End date of range
+* @apiParam f {String} Starting point, city
+* @apiParam t {String} Ending point, city
+* @apiParam w {Number} Weight, gte
+* @apiParam y {ObjectId} User id
+* @apiParam sd {Date} Start date of range
+* @apiParam ed {Date} End date of range
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -55,7 +55,7 @@ const Router = new KoaRouter();
 }
 * */
 Router.get('/v1/travels', Travel.getAll);
-/*
+/**
 * @api {get} /v1/travels/:id Get One Travel
 * @apiName GetOneTravel
 * @apiGroup Travel
@@ -85,16 +85,16 @@ Router.get('/v1/travels', Travel.getAll);
 }
 */
 Router.get('/v1/travels/:id', Travel.getOne);
-/*
+/**
 * @api {post} /travels  Create Travel
 * @apiName CreateTravel
 * @apiGroup Travel
 * @apiVersion 1.0.0
 *
-* @apiParam: from {String}
-* @apiParam: to {String}
-* @apiParam: weight {Number}
-* @apiParam: user {ObjectId}
+* @apiParam from {String}
+* @apiParam to {String}
+* @apiParam weight {Number}
+* @apiParam user {ObjectId}
 *
 * */
 Router.post('/v1/travels', Travel.create);

@@ -91,6 +91,7 @@ async function generateRequest(count) {
             counter++;
             request["travel"] = randomTravelFromPool[0]._id;
             request["pack"] = pack4travel[0]._id;
+            request["created_by"] = pack4travel[0].user;
             let newRecord = await request.save({});
             console.log("request:" + newRecord._id + " created.");
         }
@@ -109,6 +110,7 @@ async function generateDeals(count) {
             counter++;
             deal["travel"] = randomTravelFromPool[0]._id;
             deal["pack"] = pack4travel[0]._id;
+            deal["created_by"] = randomTravelFromPool[0].user;
             let newRecord = await deal.save({});
             console.log("deal:" + newRecord._id + " created.");
         }

@@ -17,9 +17,11 @@ export default {
         try {
             // @queryParam: t, representing travel
             // @queryParam: p, representing pack
+            // @queryParam: u, representing user
             let query = {};
             if (ctx.request.query.p) query["pack"] = ctx.request.query.p;
             if (ctx.request.query.t) query["travel"] = ctx.request.query.t;
+            if (ctx.request.query.u) query["created_by"] = ctx.request.query.u;
             let sort = {};
             sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
             //if (ctx.request.query.u) query = {$and: [query, {$or: [{"pack.user": ctx.request.query.u}, {"travel.user": ctx.request.query.u}]}]};
@@ -52,6 +54,7 @@ export default {
 
             newRequest.travel = ctx.request.body.travel;
             newRequest.pack = ctx.request.body.pack;
+            newRequest.user = ctx.request.body.user;
 
             ctx.body = Response.ok(await newRequest.save());
         } catch (DatabaseError) {
@@ -83,6 +86,7 @@ export default {
                 let newDeal = new Deal();
                 newDeal.travel = request.travel;
                 newDeal.pack = request.pack;
+                newDeal.user = ctx.request.body.user;
                 Response.ok(await newDeal.save());
 
             } else Response.ok(updatedRequest);

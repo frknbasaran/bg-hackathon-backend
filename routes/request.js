@@ -3,14 +3,14 @@ import KoaRouter from 'koa-router';
 
 const Router = new KoaRouter();
 
-/*
+/**
 * @api {get} /v1/requests Get All Requests
 * @apiName GetAllRequests
 * @apiGroup Request
 * @apiVersion 1.0.0
 *
-* @queryParam t {ObjectId} Travel id
-* @queryParam p {ObjectId} Pack id
+* @apiParam t {ObjectId} Travel id
+* @apiParam p {ObjectId} Pack id
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -46,7 +46,7 @@ const Router = new KoaRouter();
 }
 * */
 Router.get('/v1/requests', Request.getAll);
-/*
+/**
 * @api {get} /v1/requests/:id Get One Request
 * @apiName GetOneRequest
 * @apiGroup Request
@@ -85,25 +85,25 @@ Router.get('/v1/requests', Request.getAll);
 }
 */
 Router.get('/v1/requests/:id', Request.getOne);
-/*
+/**
 * @api {post} /v1/requests  Create Request
 * @apiName CreateRequest
 * @apiGroup Request
 * @apiVersion 1.0.0
 *
-* @queryParam: travel {ObjectId}
-* @queryParam: pack {ObjectId}
+* @apiParam travel {ObjectId}
+* @apiParam pack {ObjectId}
 *
 * */
 Router.post('/v1/requests', Request.create);
-/*
+/**
 * @api {put} /v1/requests/:id  Update Request
 * @apiName UpdateRequest
 * @apiGroup Request
 * @apiVersion 1.0.0
 *
-* @apiParam: _id {ObjectId}
-* @bodyParam: status {String}
+* @apiParam _id {ObjectId}
+* @apiParam status {String}
 *
 * */
 Router.put('/v1/requests/:id', Request.update);

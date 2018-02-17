@@ -3,18 +3,18 @@ import KoaRouter from 'koa-router';
 
 const Router = new KoaRouter();
 
-/*
+/**
 * @api {get} /v1/packs Get All Packs
 * @apiName getAllPacks
 * @apiGroup Pack
 * @apiVersion 1.0.0
 *
-* @queryParam: f {String} Starting point, city
-* @queryParam: t {String} Ending point, city
-* @queryParam: w {Number} Weight, lte
-* @queryParam: u {ObjectId} User
-* @queryParam: sk {String} Sort key
-* @queryParam: sv {String} Sort val
+* @apiParam f {String} Starting point, city
+* @apiParam t {String} Ending point, city
+* @apiParam w {Number} Weight, lte
+* @apiParam u {ObjectId} User
+* @apiParam sk {String} Sort key
+* @apiParam sv {String} Sort val
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -53,7 +53,7 @@ const Router = new KoaRouter();
 }
 * */
 Router.get('/v1/packs', Pack.getAll);
-/*
+/**
 * @api {get} /v1/packs/:id Get One Pack
 * @apiName GetOnePack
 * @apiGroup Pack
@@ -82,16 +82,16 @@ Router.get('/v1/packs', Pack.getAll);
 }
 */
 Router.get('/v1/packs/:id', Pack.getOne);
-/*
+/**
 * @api {post} /v1/packs Create Packet
 * @apiName CreatePacket
 * @apiGroup Pack
 * @apiVersion 1.0.0
 *
-* @apiParam: from {String} Starting point, city
-* @apiParam: to {String} Ending point, city
-* @apiParam: weight {Number} Weight
-* @apiParam: user {ObjectId} User id
+* @apiParam from {String} Starting point, city
+* @apiParam to {String} Ending point, city
+* @apiParam weight {Number} Weight
+* @apiParam user {ObjectId} User id
 *
 * */
 Router.post('/v1/packs', Pack.create);

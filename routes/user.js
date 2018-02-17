@@ -3,13 +3,13 @@ import KoaRouter from 'koa-router';
 
 const Router = new KoaRouter();
 
-/*
+/**
 * @api {get} /users Get All Users
 * @apiName GetAllUsers
 * @apiGroup User
 * @apiVersion 1.0.0
 *
-* @queryParam u {String} Username
+* @apiParam u {String} Username
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -40,13 +40,13 @@ const Router = new KoaRouter();
 }
 * */
 Router.get('/v1/users', User.getAll);
-/*
+/**
 * @api {get} /v1/users/:id Get One User
 * @apiName GetOneUser
 * @apiGroup User
 * @apiVersion 1.0.0
 *
-* @queryParam u {String} Username
+* @apiParam u {String} Username
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
