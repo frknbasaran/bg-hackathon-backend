@@ -16,7 +16,7 @@ export default {
             let query = {};
             if (ctx.request.query.f) query["from"] = ctx.request.query.f;
             if (ctx.request.query.t) query["to"] = ctx.request.query.t;
-            if (ctx.request.query.w) query["weight"] = {$gte: parseInt(ctx.request.query.weight)};
+            if (ctx.request.query.w) query["weight"] = {$lte: ctx.request.query.w};
             if (ctx.request.query.u) query["user"] = ctx.request.query.u;
             // return query result
             let results = await Pack.find(query).populate('user','name photo reputation');
