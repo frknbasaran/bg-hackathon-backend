@@ -14,8 +14,10 @@ export default {
             let query = {};
             if (ctx.request.query.p) query["pack"] = ctx.request.query.pack;
             if (ctx.request.query.t) query["travel"] = ctx.request.query.travel;
+            let sort = {};
+            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
             // return query result
-            let results = await Request.find(query).populate('pack travel user');
+            let results = await Request.find(query).populate('pack travel user').sort(sort);
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;

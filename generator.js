@@ -4,6 +4,7 @@ import PackSchema from './models/pack';
 import TravelSchema from './models/travel';
 import RequestSchema from './models/request';
 
+import moment from 'moment';
 import md5 from "md5";
 
 const User = Database.model('User', UserSchema);
@@ -48,6 +49,7 @@ async function generateTravel(count) {
         let travel = new Travel();
         let randomUserFromPool = await User.aggregate({$sample: {size: 1}});
         // generate random cities
+        travel["date"] = moment().add(i, 'd');
         travel["from"] = randomEl(cityNames);
         travel["to"] = randomEl(cityNames);
         while (travel["from"] == travel["to"]) travel["to"] = randomEl(cityNames);
@@ -94,11 +96,30 @@ async function generateRequest(count) {
     }
 }
 
+async function generateDeals(count) {
+    console.log("Deal generating progress on the way...");
+    let counter = 0;
+    for (let i = 0; i < count; i++) {
+        let deal = new Deal();
+        let randomTravelFromPool = await Travel.aggregate({$sample: {size: 1}});
+        let pack4travel = await Pack.find({weight: {$gte: randomTravelFromPool[0].weight}}).limit(1);
+        if (pack4travel.length > 0) {
+            counter++;
+            deal["travel"] = randomTravelFromPool[0]._id;
+            deal["pack"] = pack4travel[0]._id;
+            let newRecord = await deal.save({});
+            console.log("deal:" + newRecord._id + " created.");
+        }
+        if ((count - 1) == i) console.log(counter + " record generated successfully");
+    }
+}
+
 async function main() {
     await generateUser(100);
     await generateTravel(100);
     await generatePack(100);
     await generateRequest(100);
+    await generateDeals(100);
 }
 
 main();

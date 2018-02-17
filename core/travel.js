@@ -18,8 +18,11 @@ export default {
             if (ctx.request.query.t) query["to"] = ctx.request.query.t;
             if (ctx.request.query.w) query["weight"] = {$gte: ctx.request.query.w};
             if (ctx.request.query.u) query["user"] = ctx.request.query.u;
+            if (ctx.request.query.sd && ctx.request.query.ed) query["date"] = {$and: [{$gte: ctx.request.query.sd}, {$lte: ctx.request.query.ed}]};
+            let sort = {};
+            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
             // return query result
-            let results = await Travel.find(query).populate('user','name photo reputation');
+            let results = await Travel.find(query).populate('user', 'name photo reputation').sort(sort);
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;

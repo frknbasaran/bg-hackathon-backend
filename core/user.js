@@ -13,7 +13,9 @@ export default {
             // return query result with filter
             // @queryParam: u, representing username
             if (ctx.request.query.u) query["username"] = ctx.request.query.u;
-            let results = await User.find(query);
+            let sort = {};
+            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
+            let results = await User.find(query).sort(sort);
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
