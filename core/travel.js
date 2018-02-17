@@ -52,6 +52,7 @@ export default {
             newTravel.to = ctx.request.body.to;
             newTravel.user = ctx.request.body.user;
             newTravel.weight = ctx.request.body.weight;
+            newTravel.date = ctx.request.body.date;
 
             ctx.body = Response.ok(await newTravel.save());
         } catch (DatabaseError) {

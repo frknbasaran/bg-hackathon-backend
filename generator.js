@@ -35,7 +35,7 @@ async function generateUser(count) {
         user["name"] = capitalize(randomEl(adjectives)) + " " + capitalize(randomEl(nouns));
         user["username"] = user.name.split(" ").join("_").toLowerCase();
         user["email"] = (i % 2 == 0) ? user.username + "@getir.com" : user.username + "@bitaksi.com";
-        user["photo"] = "https://gravatar.com/avatar/" + md5(user.email.trim().toLowerCase()) + "?s=200&d=robobash";
+        user["photo"] = "https://gravatar.com/avatar/" + md5(user.email.trim().toLowerCase()) + "?s=200&d=retro";
 
         let newRecord = await user.save({});
         console.log("user:" + newRecord._id + " created.");

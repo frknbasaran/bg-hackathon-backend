@@ -25,7 +25,7 @@ export default {
     // Get one user by the _id parameter
     "getOne": async (ctx) => {
         try {
-            let results = await User.findOne({"_id": ctx.params.id}).select('name username photo');
+            let results = await User.findOne({"_id": ctx.params.id}).select('name username photo reputation');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
