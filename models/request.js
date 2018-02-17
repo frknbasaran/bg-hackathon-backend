@@ -17,7 +17,9 @@ const Request = new mongoose.Schema({
     },
     status: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Status'
+        ref: 'Status',
+        // constant value of statuses.PENDING
+        default: "5a878d1e012dd9f43a7ec793"
     }
 });
 
