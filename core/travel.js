@@ -19,7 +19,7 @@ export default {
             if (ctx.request.query.w) query["weight"] = {$gte: parseInt(ctx.request.query.weight)};
             if (ctx.request.query.u) query["user"] = ctx.request.query.u;
             // return query result
-            let results = await Travel.find(query);
+            let results = await Travel.find(query).populate('user');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
