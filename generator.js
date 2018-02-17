@@ -2,12 +2,15 @@ import Database from './utils/connection';
 import UserSchema from './models/user';
 import PackSchema from './models/pack';
 import TravelSchema from './models/travel';
+import RequestSchema from './models/request';
 
 import md5 from "md5";
 
 const User = Database.model('User', UserSchema);
 const Travel = Database.model('Travel', TravelSchema);
 const Pack = Database.model('Pack', PackSchema);
+const Request = Database.model('Request', RequestSchema);
+
 
 let adjectives = ["adamant", "adroit", "amatory", "animistic", "antic", "arcadian", "baleful", "bellicose", "bilious", "boorish", "calamitous", "caustic", "cerulean", "comely", "concomitant", "contumacious", "corpulent", "crapulous", "defamatory", "didactic", "dilatory", "dowdy", "efficacious", "effulgent", "egregious", "endemic", "equanimous", "execrable", "fastidious", "feckless", "fecund", "friable", "fulsome", "garrulous", "guileless", "gustatory", "heuristic", "histrionic", "hubristic", "incendiary", "insidious", "insolent", "intransigent", "inveterate", "invidious", "irksome", "jejune", "jocular", "judicious", "lachrymose", "limpid", "loquacious", "luminous", "mannered", "mendacious", "meretricious", "minatory", "mordant", "munificent", "nefarious", "noxious", "obtuse", "parsimonious", "pendulous", "pernicious", "pervasive", "petulant", "platitudinous", "precipitate", "propitious", "puckish", "querulous", "quiescent", "rebarbative", "recalcitant", "redolent", "rhadamanthine", "risible", "ruminative", "sagacious", "salubrious", "sartorial", "sclerotic", "serpentine", "spasmodic", "strident", "taciturn", "tenacious", "tremulous", "trenchant", "turbulent", "turgid", "ubiquitous", "uxorious", "verdant", "voluble", "voracious", "wheedling", "withering", "zealous"];
 let nouns = ["ninja", "chair", "pancake", "statue", "unicorn", "rainbows", "laser", "senor", "bunny", "captain", "nibblets", "cupcake", "carrot", "gnomes", "glitter", "potato", "salad", "toejam", "curtains", "beets", "toilet", "exorcism", "stick figures", "mermaid eggs", "sea barnacles", "dragons", "jellybeans", "snakes", "dolls", "bushes", "cookies", "apples", "ice cream", "ukulele", "kazoo", "banjo", "opera singer", "circus", "trampoline", "carousel", "carnival", "locomotive", "hot air balloon", "praying mantis", "animator", "artisan", "artist", "colorist", "inker", "coppersmith", "director", "designer", "flatter", "stylist", "leadman", "limner", "make-up artist", "model", "musician", "penciller", "producer", "scenographer", "set decorator", "silversmith", "teacher", "auto mechanic", "beader", "bobbin boy", "clerk of the chapel", "filling station attendant", "foreman", "maintenance engineering", "mechanic", "miller", "moldmaker", "panel beater", "patternmaker", "plant operator", "plumber", "sawfiler", "shop foreman", "soaper", "stationary engineer", "wheelwright", "woodworkers"];
@@ -73,6 +76,25 @@ async function generatePack(count) {
     }
 }
 
+async function generateRequest(count) {
+    console.log("Request generating progress on the way...");
+    let counter = 0;
+    for (let i = 0; i < count; i++) {
+        let request = new Request();
+        let randomTravelFromPool = await Travel.aggregate({$sample: {size: 1}});
+        let pack4travel = await Pack.find({weight: {$gte: randomTravelFromPool[0].weight}}).limit(1);
+        if (pack4travel.length > 0) {
+            counter++;
+            request["travel"] = randomTravelFromPool[0]._id;
+            request["pack"] = pack4travel[0]._id;
+            let newRecord = await request.save({});
+            console.log("request:" + newRecord._id + " created.");
+        }
+        if ((count - 1) == i) console.log(counter + " record generated successfully");
+    }
+}
+
 //generateTravel(10);
 //generateUser(10);
-generatePack(10);
+//generatePack(10);
+generateRequest(10);

@@ -15,7 +15,7 @@ export default {
             if (ctx.request.query.p) query["pack"] = ctx.request.query.pack;
             if (ctx.request.query.t) query["travel"] = ctx.request.query.travel;
             // return query result
-            let results = await Request.find(query);
+            let results = await Request.find(query).populate('pack travel user');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
@@ -25,7 +25,7 @@ export default {
     // Get one pack by the _id parameter
     "getOne": async (ctx) => {
         try {
-            let results = await Request.findOne({"_id": ctx.params.id}).populate('status');
+            let results = await Request.findOne({"_id": ctx.params.id}).populate('pack travel user');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;

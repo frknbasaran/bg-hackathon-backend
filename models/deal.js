@@ -16,10 +16,8 @@ const Deal = new mongoose.Schema({
         default: Date.now()
     },
     status: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Status',
-        // constant value of statuses.PENDING
-        default: "5a878d1e012dd9f43a7ec793"
+        type: String,
+        default: "PENDING"
     }
 });
 
