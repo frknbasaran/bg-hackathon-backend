@@ -20,9 +20,8 @@ describe('user_endpoints', function () {
             });
         });
     });
-
     describe('GET /v1/users/:id', function () {
-        it('not respond user withoud id', function () {
+        it('not respond user without id', function () {
             request(root + '/v1/deals/', function (error, response, body) {
                 body.data.length.should.be.equal(0);
             });
@@ -39,7 +38,7 @@ describe('request_endpoints', function () {
         });
     });
     describe('GET /v1/requests/:id', function () {
-        it('not respond request withoud id', function () {
+        it('not respond request without id', function () {
             request(root + '/v1/requests/', function (error, response, body) {
                 body.data.length.should.be.equal(0);
             });
@@ -74,7 +73,7 @@ describe('travel_endpoints', function () {
         });
     });
     describe('GET /v1/travels/:id', function () {
-        it('not respond request withoud id', function () {
+        it('not respond request without id', function () {
             request(root + '/v1/travels/', function (error, response, body) {
                 body.success.should.be.equal(true);
             });
@@ -91,10 +90,10 @@ describe('pack_endpoints', function () {
         });
     });
     describe('GET /v1/packs/:id', function () {
-        it('not respond pack withoud id', function () {
+        it('not respond pack without id', function () {
             request(root + '/v1/packs/', function (error, response, body) {
                 body.success.should.be.equal(true);
             });
         });
     });
-})
+});
