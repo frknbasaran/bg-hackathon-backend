@@ -4,10 +4,13 @@ import KoaRouter from 'koa-router';
 const Router = new KoaRouter();
 
 /*
-* @api {get} /requests Get All Requests
+* @api {get} /v1/requests Get All Requests
 * @apiName GetAllRequests
 * @apiGroup Request
 * @apiVersion 1.0.0
+*
+* @queryParam t {ObjectId} Travel id
+* @queryParam p {ObjectId} Pack id
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -15,29 +18,36 @@ const Router = new KoaRouter();
     "success": true,
     "data": [
         {
-            "_id": "59ac71d2bd20270bff10f175",
-            "travel":"59ac71d2bd20270bff10f175",
-            "pack":"59ac71d2bd20270bff10f175",
-            "status":"59ac71d2bd20270bff10f175"
+            _id: "5a883f3775e4b725e03a7ca1",
+            pack: {
+                _id: "5a883f3775e4b725e03a7c3e",
+                user: "5a883f3675e4b725e03a7baf",
+                weight: 46,
+                to: "Havre de Grace",
+                from: "Bethlehem",
+                __v: 0,
+                created_at: "2018-02-17T14:41:58.637Z"
+            },
+            travel: {
+                _id: "5a883f3775e4b725e03a7c25",
+                user: "5a883f3675e4b725e03a7b90",
+                weight: 19,
+                to: "Salt Lake City",
+                from: "Joliet",
+                date: "2018-05-04T14:41:59.374Z",
+                __v: 0,
+                created_at: "2018-02-17T14:41:58.646Z"
+            },
+            __v: 0,
+            status: "PENDING",
+            created_at: "2018-02-17T14:41:58.650Z"
         },
-        {
-            "_id": "59ac71d2bd20270bff10f175",
-            "travel":"59ac71d2bd20270bff10f175",
-            "pack":"59ac71d2bd20270bff10f175",
-            "status":"59ac71d2bd20270bff10f175"
-        },
-        {
-            "_id": "59ac71d2bd20270bff10f175",
-            "travel":"59ac71d2bd20270bff10f175",
-            "pack":"59ac71d2bd20270bff10f175",
-            "status":"59ac71d2bd20270bff10f175"
-        }
     ]
 }
 * */
 Router.get('/v1/requests', Request.getAll);
 /*
-* @api {get} /requests/:id GetOneRequest
+* @api {get} /v1/requests/:id Get One Request
 * @apiName GetOneRequest
 * @apiGroup Request
 * @apiVersion 1.0.0
@@ -76,7 +86,7 @@ Router.get('/v1/requests', Request.getAll);
 */
 Router.get('/v1/requests/:id', Request.getOne);
 /*
-* @api {post} /requests  Create Request
+* @api {post} /v1/requests  Create Request
 * @apiName CreateRequest
 * @apiGroup Request
 * @apiVersion 1.0.0
@@ -87,8 +97,8 @@ Router.get('/v1/requests/:id', Request.getOne);
 * */
 Router.post('/v1/requests', Request.create);
 /*
-* @api {post} /requests  Create Request
-* @apiName CreateRequest
+* @api {put} /v1/requests/:id  Update Request
+* @apiName UpdateRequest
 * @apiGroup Request
 * @apiVersion 1.0.0
 *

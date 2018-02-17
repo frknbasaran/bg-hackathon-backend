@@ -2,7 +2,6 @@
 * Load dependencies
 * */
 import Koa from 'koa';
-import Router from 'koa-router';
 import BodyParser from 'koa-bodyparser';
 import DotEnv from 'dotenv';
 import KoaQS from 'koa-qs';

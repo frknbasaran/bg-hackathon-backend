@@ -13,6 +13,8 @@ export default {
             // @queryParam: t, representing to
             // @queryParam: w, representing weight
             // @queryParam: u, representing user
+            // @queryParam: sd, start date of range
+            // @queryParam: ed, end date of range
             let query = {};
             if (ctx.request.query.f) query["from"] = ctx.request.query.f;
             if (ctx.request.query.t) query["to"] = ctx.request.query.t;
