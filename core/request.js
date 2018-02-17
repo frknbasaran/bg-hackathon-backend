@@ -49,7 +49,7 @@ export default {
     },
     update: async (ctx) => {
         try {
-            let request = await Request.findOne({"_id": ctx.params.id});
+            let request = await Request.findOne({"_id": ctx.request.params.id});
             request.status = ctx.request.body.status;
             ctx.body = Response.ok(request.save());
         }
