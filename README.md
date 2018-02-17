@@ -4,7 +4,7 @@ Seyahat sırasında fazladan bagaj hakkı bulunan insanları, uygun şehir ve ta
 
 ## Web servisi çalıştırmak için
 
-```
+```bash
 // gerekli paketlerin yüklenmesi
 $ npm install
 // dummy data oluşturmak için data generator
