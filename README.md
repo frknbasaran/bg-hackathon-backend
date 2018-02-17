@@ -26,6 +26,43 @@ Uygulama varsayılan olarak 80 numaralı porttan erişilebilir olacaktır. İlgi
 
 [Restful API Doc](https://frknbasaran.github.io/bg-hackathon-backend).
 
+## Proje Yapısı
+
+```
+my-app
+├── README.md
+├── package.json
+├── .gitignore
+├── core
+│   └── index.js
+│   └── deal.js
+│   └── pack.js
+│   └── request.js
+│   └── travel.js
+│   └── user.js
+└── models
+    └── deal.js
+    └── pack.js
+    └── request.js
+    └── travel.js
+    └── user.js
+└── routes
+    └── deal.js
+    └── index.js
+    └── pack.js
+    └── request.js
+    └── travel.js
+    └── user.js
+└── test
+    └── test.js
+└── utils
+    └── connection.js
+    └── response.js
+└── .env
+└── .gitignore
+└── apidoc.json
+```
+
 ## Teknolojiler
 
 |                |Teknoloji                          |Ek Bilgi                         |
