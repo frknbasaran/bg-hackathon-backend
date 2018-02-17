@@ -7,7 +7,7 @@ const Deal = Database.model('Deal', DealSchema);
 export default {
     // Get all deals by the filter which provided on query string
     // or without filter
-    "getAll": async (ctx) => {
+    getAll: async (ctx) => {
         try {
             // @queryParam: t, representing travel
             // @queryParam: p, representing pack
@@ -26,7 +26,7 @@ export default {
         }
     },
     // Get one deal by the _id parameter
-    "getOne": async (ctx) => {
+    getOne: async (ctx) => {
         try {
             let results = await Deal.findOne({"_id": ctx.params.id}).populate('travel pack');
             ctx.body = Response.ok(results);
@@ -35,7 +35,7 @@ export default {
             ctx.body = Response.error(DatabaseError);
         }
     },
-    "create": async (ctx) => {
+    create: async (ctx) => {
         try {
             const newDeal = new Deal();
 

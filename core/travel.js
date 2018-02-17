@@ -7,7 +7,7 @@ const Travel = Database.model('Travel', TravelSchema);
 export default {
     // Get all travels by the filter which provided on query string
     // or without filter
-    "getAll": async (ctx) => {
+    getAll: async (ctx) => {
         try {
             // @queryParam: f, representing from
             // @queryParam: t, representing to
@@ -35,7 +35,7 @@ export default {
         }
     },
     // Get one travel by the _id parameter
-    "getOne": async (ctx) => {
+    getOne: async (ctx) => {
         try {
             let results = await Travel.findOne({"_id": ctx.params.id}).populate('user');
             ctx.body = Response.ok(results);
@@ -44,7 +44,7 @@ export default {
             ctx.body = Response.error(DatabaseError);
         }
     },
-    "create": async (ctx) => {
+    create: async (ctx) => {
         try {
             const newTravel = new Travel();
 

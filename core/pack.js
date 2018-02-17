@@ -7,7 +7,7 @@ const Pack = Database.model('Pack', PackSchema);
 export default {
     // Get all packs by the filter which provided on query string
     // or without filter
-    "getAll": async (ctx) => {
+    getAll: async (ctx) => {
         try {
             // @queryParam: f, representing from
             // @queryParam: t, representing to
@@ -31,7 +31,7 @@ export default {
         }
     },
     // Get one pack by the _id parameter
-    "getOne": async (ctx) => {
+    getOne: async (ctx) => {
         try {
             let results = await Pack.findOne({"_id": ctx.params.id}).populate('user', 'name photo reputation');
             ctx.body = Response.ok(results);
@@ -40,7 +40,7 @@ export default {
             ctx.body = Response.error(DatabaseError);
         }
     },
-    "create": async (ctx) => {
+    create: async (ctx) => {
         try {
             const newPack = new Pack();
 

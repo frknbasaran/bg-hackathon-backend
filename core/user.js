@@ -7,7 +7,7 @@ const User = Database.model('User', UserSchema);
 export default {
     // Get all users by the filter which provided on query string
     // or without filter
-    "getAll": async (ctx) => {
+    getAll: async (ctx) => {
         try {
             let query = {};
             // return query result with filter
@@ -23,7 +23,7 @@ export default {
         }
     },
     // Get one user by the _id parameter
-    "getOne": async (ctx) => {
+    getOne: async (ctx) => {
         try {
             let results = await User.findOne({"_id": ctx.params.id}).select('name username photo reputation');
             ctx.body = Response.ok(results);

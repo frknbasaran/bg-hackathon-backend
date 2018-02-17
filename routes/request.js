@@ -81,10 +81,21 @@ Router.get('/v1/requests/:id', Request.getOne);
 * @apiGroup Request
 * @apiVersion 1.0.0
 *
-* @apiParam: travel {ObjectId}
-* @apiParam: pack {ObjectId}
+* @queryParam: travel {ObjectId}
+* @queryParam: pack {ObjectId}
 *
 * */
 Router.post('/v1/requests', Request.create);
+/*
+* @api {post} /requests  Create Request
+* @apiName CreateRequest
+* @apiGroup Request
+* @apiVersion 1.0.0
+*
+* @apiParam: _id {ObjectId}
+* @bodyParam: status {String}
+*
+* */
+Router.put('/v1/requests/:id', Request.update);
 
 export default Router;

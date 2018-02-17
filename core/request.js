@@ -7,7 +7,7 @@ const Request = Database.model('Request', RequestSchema);
 export default {
     // Get all requests by the filter which provided on query string
     // or without filter
-    "getAll": async (ctx) => {
+    getAll: async (ctx) => {
         try {
             // @queryParam: t, representing travel
             // @queryParam: p, representing pack
@@ -25,7 +25,7 @@ export default {
         }
     },
     // Get one pack by the _id parameter
-    "getOne": async (ctx) => {
+    getOne: async (ctx) => {
         try {
             let results = await Request.findOne({"_id": ctx.params.id}).populate('pack travel user');
             ctx.body = Response.ok(results);
@@ -34,7 +34,7 @@ export default {
             ctx.body = Response.error(DatabaseError);
         }
     },
-    "create": async (ctx) => {
+    create: async (ctx) => {
         try {
             const newRequest = new Request();
 
@@ -43,6 +43,17 @@ export default {
 
             ctx.body = Response.ok(await newRequest.save());
         } catch (DatabaseError) {
+            ctx.status = DatabaseError.status || 500;
+            ctx.body = Response.error(DatabaseError);
+        }
+    },
+    update: async (ctx) => {
+        try {
+            let request = await Request.findOne({"_id": ctx.params.id});
+            request.status = ctx.request.body.status;
+            ctx.body = Response.ok(request.save());
+        }
+        catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
             ctx.body = Response.error(DatabaseError);
         }
