@@ -1,4 +1,4 @@
-import DealSchema from '../models/Deal';
+import DealSchema from '../models/deal';
 import Database from '../utils/connection';
 import Response from "../utils/response";
 
