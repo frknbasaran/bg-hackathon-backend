@@ -11,7 +11,10 @@ const Deal = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Pack'
     },
-    created_at: Date.now(),
+    created_at: {
+        type: Date,
+        default: Date.now()
+    },
     status: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Status'

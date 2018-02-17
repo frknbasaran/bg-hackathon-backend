@@ -5,7 +5,10 @@ mongoose.Promise = Promise;
 const Pack = new mongoose.Schema({
     weight: Number,
     from: String,
-    created_at: Date.now(),
+    created_at: {
+        type: Date,
+        default: Date.now()
+    },
     to: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,

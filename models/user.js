@@ -7,7 +7,10 @@ const User = new mongoose.Schema({
     username: String,
     name: String,
     email: String,
-    registered_at: Date.now(),
+    registered_at: {
+        type: Date,
+        default: Date.now()
+    },
     reputation: Number,
     photo: String
 });

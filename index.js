@@ -9,6 +9,9 @@ import KoaQS from 'koa-qs'
 import KCors from 'koa2-cors'
 import Response from './utils/response'
 
+// routes
+import UserRouter from './routes/user';
+
 
 // Create app as a Koa Instance
 const app = new Koa()
@@ -24,6 +27,7 @@ app
     .use(KCors({origin:'*'}))
     // inital body parser
     .use(BodyParser())
+    .use(UserRouter.routes())
     .use(async (ctx) => {
         ctx.status = 404
         ctx.body = Response.error("Invalid api endpoint, please read docs.")
