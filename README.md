@@ -22,6 +22,10 @@ $ npm start
 ```
 Uygulama varsayılan olarak 80 numaralı porttan erişilebilir olacaktır. İlgili portu ```.env``` dosyasından değiştirebilirsiniz.
 
+### API Dökümantasyonu
+
+[Restful API Doc](https://frknbasaran.github.io/bg-hackathon-backend).
+
 ## Teknolojiler
 
 |                |Teknoloji                          |Ek Bilgi                         |
