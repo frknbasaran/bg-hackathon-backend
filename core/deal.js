@@ -18,7 +18,7 @@ export default {
             if (ctx.request.query.t) query["travel"] = ctx.request.query.t;
             if (ctx.request.query.p) query["pack"] = ctx.request.query.p;
             // return query result
-            let results = await Deal.find(query).sort(sort);
+            let results = await Deal.find(query).sort(sort).populate('travel pack');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
