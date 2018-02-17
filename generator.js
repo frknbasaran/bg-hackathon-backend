@@ -1,6 +1,7 @@
 import Database from './utils/connection';
 import UserSchema from './models/user';
 import PackSchema from './models/pack';
+import DealSchema from './models/deal';
 import TravelSchema from './models/travel';
 import RequestSchema from './models/request';
 
@@ -8,6 +9,7 @@ import moment from 'moment';
 import md5 from "md5";
 
 const User = Database.model('User', UserSchema);
+const Deal= Database.model('Deal', DealSchema);
 const Travel = Database.model('Travel', TravelSchema);
 const Pack = Database.model('Pack', PackSchema);
 const Request = Database.model('Request', RequestSchema);
@@ -120,6 +122,7 @@ async function main() {
     await generatePack(100);
     await generateRequest(100);
     await generateDeals(100);
+    console.log("All data types populated successfully");
 }
 
 main();
