@@ -2,6 +2,21 @@
 
 Seyahat sırasında fazladan bagaj hakkı bulunan insanları, uygun şehir ve tarihte taşınması gereken paketi olan insanlarla buluşturup süreci kolaylaştıran uygulama.
 
+## Web servisi çalıştırmak için
+
+```
+// gerekli paketlerin yüklenmesi
+$ npm install
+// dummy data oluşturmak için data generator
+$ npm run generate
+// testler
+$ mocha
+// son olarak çalıştırmak için
+$ npm start
+```
+
+Uygulama 80 numaralı porttan erişilebilir olacaktır.
+
 ## Teknolojiler
 
 |                |Teknoloji                          |Ek Bilgi                         |
