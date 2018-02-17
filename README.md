@@ -4,18 +4,23 @@ Seyahat sırasında fazladan bagaj hakkı bulunan insanları, uygun şehir ve ta
 
 ## Web servisi çalıştırmak için
 
+###Gerekli paketlerin yüklenmesi
 ```bash
-// gerekli paketlerin yüklenmesi
 $ npm install
-// dummy data oluşturmak için data generator
+```
+###Dummy data oluşturmak için data üreteci
+```bash
 $ npm run generate
-// testler
+```
+###Unit Testler
+```bash
 $ mocha
-// son olarak çalıştırmak için
+```
+###Uygulamanın ayağa kaldırılması
+```bash
 $ npm start
 ```
-
-Uygulama 80 numaralı porttan erişilebilir olacaktır.
+Uygulama varsayılan olarak 80 numaralı porttan erişilebilir olacaktır. İlgili portu ```.env``` dosyasından değiştirebilirsiniz.
 
 ## Teknolojiler
 
