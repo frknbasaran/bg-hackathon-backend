@@ -49,8 +49,6 @@ Uygulama varsayılan olarak 80 numaralı porttan erişilebilir olacaktır. İlgi
 - Sürecin oluşturulması sırasında kullanıcı deneyiminin harita ile iyileştirilmesi
 
 ## Takım Üyeleri
-Furkan Başaran - Backend Developer
-
-Ömer Faruk Görmel - Android Developer
-
-Ömer Kantar - iOS Developer
+[Furkan Başaran](https://github.com/frknbasaran) - Backend Developer
+[Ömer Faruk Görmel](https://github.com/gormelof) - Android Developer
+[Ömer Kantar](https://github.com/omerkantar) - iOS Developer
