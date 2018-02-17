@@ -81,10 +81,6 @@ bg-hackathon-backend
 
 > Bazı ekranlar ui/ux açısından yeniden değerlendirilip modala dönüştürülebilir.
 
-## Ek Özellik
-
-- Sürecin oluşturulması sırasında kullanıcı deneyiminin harita ile iyileştirilmesi
-
 ## Takım Üyeleri
  - [Furkan Başaran](https://github.com/frknbasaran) - Backend Developer
  - [Ömer Faruk Görmel](https://github.com/gormelof) - Android Developer
