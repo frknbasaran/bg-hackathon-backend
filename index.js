@@ -12,7 +12,7 @@ import Response from './utils/response';
 // routes
 import UserRouter from './routes/user';
 import DealRouter from './routes/deal';
-
+import TravelRouter from './routes/travel';
 
 // Create app as a Koa Instance
 const app = new Koa();
@@ -30,6 +30,7 @@ app
     .use(BodyParser())
     .use(UserRouter.routes())
     .use(DealRouter.routes())
+    .use(TravelRouter.routes())
     .use(async (ctx) => {
         ctx.status = 404
         ctx.body = Response.error("Invalid api endpoint, please read docs.")

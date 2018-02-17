@@ -34,7 +34,7 @@ const Router = new KoaRouter();
 * */
 Router.get('/v1/deals', Deal.getAll);
 /*
-* @api {get} /deals/:id Get OneDeal
+* @api {get} /deals/:id GetOneDeal
 * @apiName GetOneDeal
 * @apiGroup Deal
 * @apiVersion 1.0.0
@@ -63,6 +63,16 @@ Router.get('/v1/deals', Deal.getAll);
 }
 */
 Router.get('/v1/deals/:id', Deal.getOne);
-
+/*
+* @api {post} /deals    Create Deal
+* @apiName CreateDeal
+* @apiGroup Deal
+* @apiVersion 1.0.0
+*
+* @apiParam: travel {ObjectId}
+* @apiParam: pack {ObjectId}
+*
+* */
+Router.post('/v1/deals', Deal.create);
 
 export default Router;
