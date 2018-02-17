@@ -29,10 +29,7 @@ Uygulama varsayılan olarak 80 numaralı porttan erişilebilir olacaktır. İlgi
 ## Proje Yapısı
 
 ```
-my-app
-├── README.md
-├── package.json
-├── .gitignore
+bg-hackathon-backend
 ├── core
 │   └── index.js
 │   └── deal.js
@@ -61,6 +58,9 @@ my-app
 └── .env
 └── .gitignore
 └── apidoc.json
+└── README.md
+└── package.json
+
 ```
 
 ## Teknolojiler
