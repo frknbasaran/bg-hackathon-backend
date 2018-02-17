@@ -9,17 +9,12 @@ export default {
     // or without filter
     "getAll": async (ctx) => {
         try {
+            let query = {};
             // return query result with filter
             // @queryParam: u, representing username
-            if (ctx.request.query.u) {
-                let results = await User.find({username: ctx.request.query.u});
-                ctx.body = Response.ok(results);
-            }
-            // return query result without filter, literally "all" users
-            else {
-                let results = await User.find({});
-                ctx.body = Response.ok(results);
-            }
+            if (ctx.request.query.u) query["username"] = ctx.request.query.u;
+            let results = await User.find(query);
+            ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
             ctx.body = Response.error(DatabaseError);
