@@ -9,8 +9,8 @@ const Router = new KoaRouter();
 * @apiGroup Request
 * @apiVersion 1.0.0
 *
-* @apiParam t {ObjectId} Travel id
-* @apiParam p {ObjectId} Pack id
+* @apiParam t ObjectId Travel id
+* @apiParam p ObjectId Pack id
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -91,8 +91,8 @@ Router.get('/v1/requests/:id', Request.getOne);
 * @apiGroup Request
 * @apiVersion 1.0.0
 *
-* @apiParam travel {ObjectId}
-* @apiParam pack {ObjectId}
+* @apiParam travel ObjectId
+* @apiParam pack ObjectId
 *
 * */
 Router.post('/v1/requests', Request.create);
@@ -102,8 +102,8 @@ Router.post('/v1/requests', Request.create);
 * @apiGroup Request
 * @apiVersion 1.0.0
 *
-* @apiParam _id {ObjectId}
-* @apiParam status {String}
+* @apiParam _id ObjectId
+* @apiParam status String
 *
 * */
 Router.put('/v1/requests/:id', Request.update);

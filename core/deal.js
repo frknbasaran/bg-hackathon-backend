@@ -12,7 +12,7 @@ export default {
             // @queryParam: t, representing travel
             // @queryParam: p, representing pack
             // @queryParam: u, representing user
-            // @queryParam: s, representing sort, order by created_at,
+            // @queryParam: sk, sv, representing sort, order by created_at,
             let query = {};
             let sort = {};
             sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;

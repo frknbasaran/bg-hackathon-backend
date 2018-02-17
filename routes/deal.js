@@ -9,9 +9,10 @@ const Router = new KoaRouter();
 * @apiGroup Deal
 * @apiVersion 1.0.0
 *
-* @queryParam: t {ObjectId}
-* @queryParam: p {ObjectId}
-* @queryParam: s {Object}
+* @apiParam t ObjectId
+* @apiParam p ObjectId
+* @apiParam sk String, sorting key, ie: created_at
+* @apiParam sv String, sorting type: ie: -1 for desc, 1 for asc
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -118,8 +119,8 @@ Router.get('/v1/deals/:id', Deal.getOne);
 * @apiGroup Deal
 * @apiVersion 1.0.0
 *
-* @bodyParam: travel {ObjectId}
-* @bodyParam: pack {ObjectId}
+* @apiParam travel ObjectId
+* @apiParam pack ObjectId
 *
 * */
 Router.post('/v1/deals', Deal.create);

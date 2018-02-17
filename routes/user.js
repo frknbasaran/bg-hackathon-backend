@@ -9,7 +9,7 @@ const Router = new KoaRouter();
 * @apiGroup User
 * @apiVersion 1.0.0
 *
-* @apiParam u {String} Username
+* @apiParam u String, Username
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200
@@ -46,7 +46,7 @@ Router.get('/v1/users', User.getAll);
 * @apiGroup User
 * @apiVersion 1.0.0
 *
-* @apiParam u {String} Username
+* @apiParam u String, Username
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200

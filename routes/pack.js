@@ -88,10 +88,10 @@ Router.get('/v1/packs/:id', Pack.getOne);
 * @apiGroup Pack
 * @apiVersion 1.0.0
 *
-* @apiParam from {String} Starting point, city
-* @apiParam to {String} Ending point, city
-* @apiParam weight {Number} Weight
-* @apiParam user {ObjectId} User id
+* @apiParam from String, Starting point, city
+* @apiParam to String, Ending point, city
+* @apiParam weight Number, Weight
+* @apiParam user ObjectId, User id
 *
 * */
 Router.post('/v1/packs', Pack.create);
