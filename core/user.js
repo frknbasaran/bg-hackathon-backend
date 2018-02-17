@@ -1,4 +1,4 @@
-import UserSchema from '../models/User';
+import UserSchema from '../models/user';
 import Database from '../utils/connection';
 import Response from '../utils/response';
 

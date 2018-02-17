@@ -1,4 +1,4 @@
-import PackSchema from '../models/Pack';
+import PackSchema from '../models/pack';
 import Database from '../utils/connection';
 import Response from "../utils/response";
 

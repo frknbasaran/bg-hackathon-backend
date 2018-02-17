@@ -1,4 +1,4 @@
-import RequestSchema from '../models/Request';
+import RequestSchema from '../models/request';
 import Database from '../utils/connection';
 import Response from "../utils/response";
 

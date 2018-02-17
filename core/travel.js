@@ -1,4 +1,4 @@
-import TravelSchema from '../models/Travel';
+import TravelSchema from '../models/travel';
 import Database from '../utils/connection';
 import Response from "../utils/response";
 
