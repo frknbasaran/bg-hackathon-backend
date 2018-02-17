@@ -33,6 +33,16 @@ export default {
         }
     },
     "create": async (ctx) => {
+        try {
+            const newDeal = new Deal();
 
+            newDeal.travel = ctx.request.body.travel;
+            newDeal.pack   = ctx.request.body.pack;
+
+            ctx.body = Response.ok(await newDeal.save());
+        } catch (DatabaseError) {
+            ctx.status = DatabaseError.status || 500;
+            ctx.body = Response.error(DatabaseError);
+        }
     }
 }
