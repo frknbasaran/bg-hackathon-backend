@@ -11,11 +11,13 @@ export default {
         try {
             // @queryParam: t, representing travel
             // @queryParam: p, representing pack
+            // @queryParam: s, representing sort, order by created_at,
             let query = {};
+            let sort = ctx.request.query.sort || 1;
             if (ctx.request.query.t) query["travel"] = ctx.request.query.t;
             if (ctx.request.query.p) query["pack"] = ctx.request.query.p;
             // return query result
-            let results = await Deal.find(query);
+            let results = await Deal.find(query).sort({"created_at":sort});
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;

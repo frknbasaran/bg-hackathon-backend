@@ -94,7 +94,11 @@ async function generateRequest(count) {
     }
 }
 
-//generateTravel(10);
-//generateUser(10);
-//generatePack(10);
-generateRequest(10);
+async function main() {
+    await generateUser(100);
+    await generateTravel(100);
+    await generatePack(100);
+    await generateRequest(100);
+}
+
+main();

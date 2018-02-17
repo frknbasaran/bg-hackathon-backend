@@ -13,13 +13,17 @@ export default {
             // @queryParam: t, representing to
             // @queryParam: w, representing weight
             // @queryParam: u, representing user
+            // @queryParam: sk, representing sort, sorting key, desc&asc
+            // @queryParam: sv, representing sort, sorting val, desc&asc
             let query = {};
+            let sort = {};
+            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
             if (ctx.request.query.f) query["from"] = ctx.request.query.f;
             if (ctx.request.query.t) query["to"] = ctx.request.query.t;
             if (ctx.request.query.w) query["weight"] = {$lte: ctx.request.query.w};
             if (ctx.request.query.u) query["user"] = ctx.request.query.u;
             // return query result
-            let results = await Pack.find(query).populate('user','name photo reputation');
+            let results = await Pack.find(query).populate('user', 'name photo reputation').sort(sort);
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
@@ -29,7 +33,7 @@ export default {
     // Get one pack by the _id parameter
     "getOne": async (ctx) => {
         try {
-            let results = await Pack.findOne({"_id": ctx.params.id}).populate('user');
+            let results = await Pack.findOne({"_id": ctx.params.id}).populate('user', 'name photo reputation');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
