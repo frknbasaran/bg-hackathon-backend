@@ -31,5 +31,8 @@ export default {
             ctx.status = DatabaseError.status || 500;
             ctx.body = Response.error(DatabaseError);
         }
+    },
+    "create": async (ctx) => {
+
     }
 }

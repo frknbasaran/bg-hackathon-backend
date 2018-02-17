@@ -33,6 +33,36 @@ const Router = new KoaRouter();
 }
 * */
 Router.get('/v1/deals', Deal.getAll);
+/*
+* @api {get} /deals/:id Get OneDeal
+* @apiName GetOneDeal
+* @apiGroup Deal
+* @apiVersion 1.0.0
+*
+* @apiSuccessExample {json} Success-Response:
+*   HTTP/1.1 200
+ {
+    "success": true,
+    "data": [
+        {
+            "_id": "59ac71d2bd20270bff10f175",
+            "travel": {
+                "user":"59ac71d2bd20270bff10f175",
+                "from":"Istanbul",
+                "to":"Dubai",
+                "weight":10
+            },
+            "pack": {
+                "user":"59ac71d2bd20270bff10f175",
+                "from":"Istanbul",
+                "to":"Dubai",
+                "weight":9
+            }
+        }
+    ]
+}
+*/
+Router.get('/v1/deals/:id', Deal.getOne);
 
 
 export default Router;
