@@ -8,9 +8,9 @@ Seyahat sırasında fazladan bagaj hakkı bulunan insanları, uygun şehir ve ta
 ```bash
 $ npm install
 ```
-### Dummy data oluşturmak için data üreteci
+### 20 adet dummy data oluşturmak için data üreteci
 ```bash
-$ npm run generate
+$ COUNT=20 npm run generate
 ```
 ### Unit Testler
 ```bash
