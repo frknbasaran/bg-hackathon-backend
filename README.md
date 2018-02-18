@@ -38,23 +38,23 @@ bg-hackathon-backend
 │   └── travel.js
 │   └── user.js
 └── models
-    └── deal.js
-    └── pack.js
-    └── request.js
-    └── travel.js
-    └── user.js
+│   └── deal.js
+│   └── pack.js
+│   └── request.js
+│   └── travel.js
+│   └── user.js
 └── routes
-    └── deal.js
-    └── index.js
-    └── pack.js
-    └── request.js
-    └── travel.js
-    └── user.js
+│   └── deal.js
+│   └── index.js
+│   └── pack.js
+│   └── request.js
+│   └── travel.js
+│   └── user.js
 └── test
-    └── test.js
+│   └── test.js
 └── utils
-    └── connection.js
-    └── response.js
+│   └── connection.js
+│   └── response.js
 └── .env
 └── .gitignore
 └── apidoc.json
