@@ -13,6 +13,8 @@ const Router = new KoaRouter();
 * @apiParam p ObjectId
 * @apiParam sk String, sorting key, ie: created_at
 * @apiParam sv String, sorting type: ie: -1 for desc, 1 for asc
+* @apiParam sf String, sent_from, user id which sent request
+* @apiParam st String, sent_to, user id which sent request to
 *
 * @apiSuccessExample {json} Success-Response:
 *   HTTP/1.1 200

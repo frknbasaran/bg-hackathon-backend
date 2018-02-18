@@ -19,7 +19,11 @@ const Request = new mongoose.Schema({
         type: String,
         default: 'PENDING'
     },
-    created_by: {
+    sent_from: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    sent_to: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }

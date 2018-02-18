@@ -118,13 +118,14 @@ async function generateDeals(count) {
     }
 }
 
-async function main() {
-    await generateUser(100);
-    await generateTravel(100);
-    await generatePack(100);
-    await generateRequest(100);
-    await generateDeals(100);
+async function main(count) {
+    await generateUser(count);
+    await generateTravel(count);
+    await generatePack(count);
+    await generateRequest(count);
+    await generateDeals(count);
     console.log("All data types populated successfully");
 }
 
-main();
+
+main(process.env.COUNT);

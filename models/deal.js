@@ -19,7 +19,11 @@ const Deal = new mongoose.Schema({
         type: String,
         default: "WAITING"
     },
-    created_by: {
+    sent_from: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    sent_to: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }

@@ -18,10 +18,14 @@ export default {
             // @queryParam: t, representing travel
             // @queryParam: p, representing pack
             // @queryParam: u, representing user
+            // @queryParam: st, sent_to, target user of request
+            // @queryParam: sf, sent_from, sender user of request
             let query = {};
             if (ctx.request.query.p) query["pack"] = ctx.request.query.p;
             if (ctx.request.query.t) query["travel"] = ctx.request.query.t;
             if (ctx.request.query.u) query["created_by"] = ctx.request.query.u;
+            if (ctx.request.query.sf) query["sent_from"] = ctx.request.query.sf;
+            if (ctx.request.query.st) query["sent_to"] = ctx.request.query.st;
             let sort = {};
             sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
             //if (ctx.request.query.u) query = {$and: [query, {$or: [{"pack.user": ctx.request.query.u}, {"travel.user": ctx.request.query.u}]}]};
