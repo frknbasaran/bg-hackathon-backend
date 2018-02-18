@@ -90,7 +90,8 @@ export default {
                 let newDeal = new Deal();
                 newDeal.travel = request.travel;
                 newDeal.pack = request.pack;
-                newDeal.user = ctx.request.body.user;
+                newDeal.sent_from = request.sent_from;
+                newDeal.sent_to = request.sent_to;
                 let savedDeal = await newDeal.save();
                 ctx.body = await Response.ok(savedDeal);
 
