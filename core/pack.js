@@ -17,7 +17,7 @@ export default {
             // @queryParam: sv, representing sort, sorting val, desc&asc
             let query = {};
             let sort = {};
-            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
+            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || -1;
             if (ctx.request.query.f) query["from"] = ctx.request.query.f;
             if (ctx.request.query.t) query["to"] = ctx.request.query.t;
             if (ctx.request.query.w) query["weight"] = {$lte: ctx.request.query.w};

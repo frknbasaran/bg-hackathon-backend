@@ -28,7 +28,7 @@ export default {
             }
             query["status"] = "ACTIVE";
             let sort = {};
-            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
+            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || -1;
             // return query result
             let results = await Travel.find(query).populate('user', 'name photo reputation').sort(sort);
             ctx.body = Response.ok(results);
