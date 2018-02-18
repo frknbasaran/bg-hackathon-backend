@@ -21,7 +21,7 @@ export default {
             if (ctx.request.query.sf) query["sent_from"] = ctx.request.query.sf;
             if (ctx.request.query.st) query["sent_to"] = ctx.request.query.st;
             // return query result
-            let results = await Deal.find(query).sort(sort).populate('travel pack');
+            let results = await Deal.find(query).sort(sort).populate('travel pack sent_from sent_to');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;

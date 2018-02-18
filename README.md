@@ -12,7 +12,7 @@ $ npm install
 ```bash
 $ COUNT=X npm run generate
 ```
-### Unit Testler
+### Unit testler
 ```bash
 $ mocha
 ```
@@ -22,11 +22,11 @@ $ npm start
 ```
 Uygulama varsayılan olarak 80 numaralı porttan erişilebilir olacaktır. İlgili portu ```.env``` dosyasından değiştirebilirsiniz.
 
-### API Dökümantasyonu
+### API dökümantasyonu
 
 [Restful API Doc](https://frknbasaran.github.io/bg-hackathon-backend).
 
-## Proje Yapısı
+## Proje yapısı
 
 ```
 bg-hackathon-backend
@@ -67,11 +67,11 @@ bg-hackathon-backend
 
 |                |Teknoloji                          |Ek Bilgi                         |
 |----------------|-------------------------------|-----------------------------|
-|Sunucu| NodeJS, MongoDB            |Koa2, Node v8.4.0            |
+|Sunucu| NodeJS, MongoDB            |Koa2, Node8            |
 |İstemci(iOS)          |Native iOS|Swift 4.0            |
 |İstemci(Android)          |Native Android|Java 8|
 
-## Uygulama Kapsamı
+## Uygulama kapsamı
 
 - Seyahat edenler ve paketi olan kullanıcıların birbirlerini görebilecekleri liste ekranı
 - Uygun tarih, bagaj ölçüleri ve şehirler için filtreleme ekranı
@@ -81,7 +81,7 @@ bg-hackathon-backend
 
 > Bazı ekranlar ui/ux açısından yeniden değerlendirilip modala dönüştürülebilir.
 
-## Takım Üyeleri
+## Takım üyeleri
  - [Furkan Başaran](https://github.com/frknbasaran) - Backend Developer
  - [Ömer Faruk Görmel](https://github.com/gormelof) - Android Developer
  - [Ömer Kantar](https://github.com/omerkantar) - iOS Developer
