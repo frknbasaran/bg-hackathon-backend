@@ -43,12 +43,23 @@ export default {
             const newDeal = new Deal();
 
             newDeal.travel = ctx.request.body.travel;
-            newDeal.pack   = ctx.request.body.pack;
+            newDeal.pack = ctx.request.body.pack;
             newDeal.sent_from = ctx.request.body.sent_from;
             newDeal.sent_to = ctx.request.body.sent_to;
 
             ctx.body = Response.ok(await newDeal.save());
         } catch (DatabaseError) {
+            ctx.status = DatabaseError.status || 500;
+            ctx.body = Response.error(DatabaseError);
+        }
+    },
+    update: async (ctx) => {
+        try {
+            let deal = await Deal.findOne({"_id": ctx.params.id});
+            deal.status = ctx.request.body.status;
+            ctx.body = Response.ok(await deal.save());
+        }
+        catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
             ctx.body = Response.error(DatabaseError);
         }

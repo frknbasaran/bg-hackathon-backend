@@ -92,9 +92,9 @@ export default {
                 newDeal.pack = request.pack;
                 newDeal.user = ctx.request.body.user;
                 let savedDeal = await newDeal.save();
-                ctx.body = Response.ok(savedDeal);
+                ctx.body = await Response.ok(savedDeal);
 
-            } else ctx.body = Response.ok(updatedRequest);
+            } else await Response.ok(updatedRequest);
         }
         catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;

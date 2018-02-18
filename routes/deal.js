@@ -126,5 +126,15 @@ Router.get('/v1/deals/:id', Deal.getOne);
 *
 * */
 Router.post('/v1/deals', Deal.create);
+/**
+ * @api {post} /v1/deals/:id    Update Deal
+ * @apiName UpdateDeal
+ * @apiGroup Deal
+ * @apiVersion 1.0.0
+ *
+ * @apiParam status String
+ *
+ * */
+Router.put('/v1/deals/:id', Deal.update);
 
 export default Router;
