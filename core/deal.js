@@ -44,6 +44,8 @@ export default {
 
             newDeal.travel = ctx.request.body.travel;
             newDeal.pack   = ctx.request.body.pack;
+            newDeal.sent_from = ctx.request.body.sent_from;
+            newDeal.sent_to = ctx.request.body.sent_to;
 
             ctx.body = Response.ok(await newDeal.save());
         } catch (DatabaseError) {

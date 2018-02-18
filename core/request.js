@@ -55,7 +55,8 @@ export default {
 
             newRequest.travel = ctx.request.body.travel;
             newRequest.pack = ctx.request.body.pack;
-            newRequest.user = ctx.request.body.user;
+            newRequest.sent_from = ctx.request.body.sent_from;
+            newRequest.sent_to = ctx.request.body.sent_to;
 
             ctx.body = Response.ok(await newRequest.save());
         } catch (DatabaseError) {
