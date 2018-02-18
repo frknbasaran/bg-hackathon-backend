@@ -120,6 +120,25 @@ async function generateDeals(count) {
     }
 }
 
+async function generateData4Omer(count) {
+    console.log("Data generating 4 Omer.");
+    for (let i = 0; i < count; i++) {
+        let deal = new Deal();
+        let randomTravelFromPool = await Travel.aggregate({$sample: {size: 1}});
+        let pack4travel = await Pack.find({weight: {$gte: randomTravelFromPool[0].weight}}).limit(1);
+        if (pack4travel.length > 0) {
+            counter++;
+            deal["travel"] = randomTravelFromPool[0]._id;
+            deal["pack"] = pack4travel[0]._id;
+            deal["sent_from"] = randomTravelFromPool[0].user;
+            deal["sent_to"] = pack4travel[0].user;
+            let newRecord = await deal.save({});
+            console.log("deal:" + newRecord._id + " created.");
+        }
+        if ((count - 1) == i) console.log(counter + " record generated successfully");
+    }
+}
+
 async function main(count) {
     await generateUser(count);
     await generateTravel(count);

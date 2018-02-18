@@ -70,7 +70,7 @@ export default {
     */
     update: async (ctx) => {
         try {
-            let request = await Request.findOne({"_id": ctx.request.params.id});
+            let request = await Request.findOne({"_id": ctx.params.id});
             request.status = ctx.request.body.status;
             let updatedRequest = request.save()
             // when request approved
