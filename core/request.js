@@ -72,7 +72,7 @@ export default {
         try {
             let request = await Request.findOne({"_id": ctx.params.id});
             request.status = ctx.request.body.status;
-            let updatedRequest = request.save()
+            let updatedRequest = await request.save()
             // when request approved
             // create deal from it
             if (request.status == "APPROVED") {
