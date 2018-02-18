@@ -78,11 +78,12 @@ export default {
             if (request.status == "APPROVED") {
                 // set disable related pack and travel
                 // hide from list api results
-                let relatedTravel = Travel.findOne({_id: request.travel});
+                let relatedTravel = await Travel.findOne({_id: request.travel});
+
                 relatedTravel.status = "DISABLED";
                 await relatedTravel.save();
 
-                let relatedPack = Pack.findOne({_id: request.pack});
+                let relatedPack = await Pack.findOne({_id: request.pack});
                 relatedPack.status = "DISABLED";
                 await relatedPack.save();
 
@@ -90,9 +91,10 @@ export default {
                 newDeal.travel = request.travel;
                 newDeal.pack = request.pack;
                 newDeal.user = ctx.request.body.user;
-                Response.ok(await newDeal.save());
+                let savedDeal = await newDeal.save();
+                ctx.body = Response.ok(savedDeal);
 
-            } else Response.ok(updatedRequest);
+            } else ctx.body = Response.ok(updatedRequest);
         }
         catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
