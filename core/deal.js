@@ -21,7 +21,7 @@ export default {
             if (ctx.request.query.sf) query["sent_from"] = ctx.request.query.sf;
             if (ctx.request.query.st) query["sent_to"] = ctx.request.query.st;
             // return query result
-            let results = await Deal.find(query).sort(sort).populate('travel pack sent_from sent_to');
+            let results = await Deal.find(query).sort(sort).populate('travel pack sent_from sent_to').deepPopulate('pack.user travel.user');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;
@@ -31,7 +31,7 @@ export default {
     // Get one deal by the _id parameter
     getOne: async (ctx) => {
         try {
-            let results = await Deal.findOne({"_id": ctx.params.id}).populate('travel pack');
+            let results = await Deal.findOne({"_id": ctx.params.id}).populate('travel pack').deepPopulate('pack.user travel.user');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;

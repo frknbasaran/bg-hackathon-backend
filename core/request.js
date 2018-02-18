@@ -29,6 +29,7 @@ export default {
             // return query result
             let results = await Request.find(query)
                 .populate('pack travel sent_from sent_to')
+                .deepPopulate('pack.user travel.user')
                 .sort(sort);
 
             ctx.body = Response.ok(results);
@@ -41,8 +42,8 @@ export default {
     getOne: async (ctx) => {
         try {
             let results = await Request.findOne({"_id": ctx.params.id})
-                .populate('pack travel user');
-
+                .populate('pack travel user')
+                .deepPopulate('pack.user travel.user');
             ctx.body = Response.ok(results);
         } catch (DatabaseError) {
             ctx.status = DatabaseError.status || 500;

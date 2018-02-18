@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import deepPopulate from 'mongoose-deep-populate';
+
+const DeepPopulate = deepPopulate(mongoose);
 
 mongoose.Promise = Promise;
 
@@ -26,6 +29,17 @@ const Request = new mongoose.Schema({
     sent_to: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    }
+});
+
+Request.plugin(DeepPopulate, {
+    populate: {
+        'pack.user': {
+            select: 'name username photo'
+        },
+        'travel.user': {
+            select: 'name username photo'
+        }
     }
 });
 
