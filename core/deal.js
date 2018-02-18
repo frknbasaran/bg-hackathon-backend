@@ -15,7 +15,7 @@ export default {
             // @queryParam: sk, sv, representing sort, order by created_at,
             let query = {};
             let sort = {};
-            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
+            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || -1;
             if (ctx.request.query.t) query["travel"] = ctx.request.query.t;
             if (ctx.request.query.p) query["pack"] = ctx.request.query.p;
             if (ctx.request.query.sf) query["sent_from"] = ctx.request.query.sf;

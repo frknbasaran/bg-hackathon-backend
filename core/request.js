@@ -25,7 +25,7 @@ export default {
             if (ctx.request.query.sf) query["sent_from"] = ctx.request.query.sf;
             if (ctx.request.query.st) query["sent_to"] = ctx.request.query.st;
             let sort = {};
-            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || 1;
+            sort[ctx.request.query.sk || "created_at"] = ctx.request.query.sv || -1;
             // return query result
             let results = await Request.find(query)
                 .populate('pack travel sent_from sent_to')
